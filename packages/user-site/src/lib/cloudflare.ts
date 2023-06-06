@@ -5,7 +5,7 @@ const endpoint = (key) => {
 };
 
 export const readFromKV = async (key: string) => {
-  const { success, result, errors, value } = await fetch(endpoint(key), {
+  const { value } = await fetch(endpoint(key), {
     method: "GET",
     headers: {
       Authorization: `Bearer ${process.env.CLOUDFLARE_KV_API_READ_TOKEN}`,
@@ -15,7 +15,7 @@ export const readFromKV = async (key: string) => {
   }).then((response) => {
     return response.json();
   });
-
+  console.log({ value });
   return value;
 };
 
@@ -29,6 +29,7 @@ export const writeToKv = async (key: string, value: any) => {
     body: JSON.stringify({ value }),
   }).then((response) => response.json());
 
+  console.log({ result });
   if (success) {
     return result;
   }
