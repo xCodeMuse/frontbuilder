@@ -1,5 +1,6 @@
 import page from "src/lib/page";
 import { DataType } from "./types";
+import { readFromKV, writeToKv } from "./lib/cloudflare";
 
 const getPageData = async ({
   site,
@@ -12,7 +13,11 @@ const getPageData = async ({
   let data: DataType;
 
   try {
-    data = await page.getBySiteAndPage(site, slug);
+    data = await readFromKV(`${site}${slug}`);
+    if (!data) {
+      data = await page.getBySiteAndPage(site, slug);
+      await writeToKv(`${site}${slug}`, data);
+    }
   } catch (e) {
     error = e;
   }
