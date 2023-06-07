@@ -5,14 +5,15 @@ const endpoint = (key) => {
 };
 
 export const readFromKV = async (key: string) => {
-  const { value } = await fetch(endpoint(key), {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${process.env.CLOUDFLARE_KV_API_READ_TOKEN}`,
-      Host: "api.cloudflare.com",
-      "Content-Type": "application/json",
-    },
-  }).then((response) => {
+  const { value } = await fetch(
+    `https://frontbuilder-worker.hadi-syahbal.workers.dev/?key=${key}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  ).then((response) => {
     return response.json();
   });
   return value;
