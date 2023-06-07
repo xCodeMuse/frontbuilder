@@ -71,7 +71,7 @@ const getFromJson = async (site: string, slug: string) => {
   let data: DataType;
 
   try {
-    const filePath = path.join(process.cwd(), "data.json");
+    const filePath = path.join(process.cwd(), "public/data.json");
     const jsonData = await fs.readFile(filePath);
     // @ts-ignore
     const objectData = JSON.parse(jsonData);
