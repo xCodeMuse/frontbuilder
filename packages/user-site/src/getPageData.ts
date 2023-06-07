@@ -75,11 +75,11 @@ const getFromJson = async (site: string, slug: string) => {
     const jsonData = await fs.readFile(filePath);
     // @ts-ignore
     const objectData = JSON.parse(jsonData);
-    data = objectData[`${site}-${slug}`];
+    data = objectData[`${site}${slug}`];
 
     if (!data) {
       data = await page.getBySiteAndPage(site, slug);
-      const newObjectData = { ...objectData, ...{ [`${site}-${slug}`]: data } };
+      const newObjectData = { ...objectData, ...{ [`${site}${slug}`]: data } };
       await fs.writeFile(filePath, JSON.stringify(newObjectData));
     }
   } catch (e) {
