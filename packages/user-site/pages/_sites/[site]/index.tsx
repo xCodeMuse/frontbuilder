@@ -23,7 +23,7 @@ export default function Index({
   }
 
   if (error?.code) {
-    return <Page500 />;
+    return <Page500 error={error} />;
   }
 
   if (

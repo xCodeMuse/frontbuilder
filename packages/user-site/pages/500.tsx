@@ -3,7 +3,7 @@ import { FaRegSadCry } from "react-icons/fa";
 import CustomHead from "../src/CustomHead";
 import React from "react";
 
-const Page500 = () => {
+const Page500 = ({ error }) => {
   return (
     <>
       <CustomHead title={"Error"} />
@@ -16,6 +16,7 @@ const Page500 = () => {
         <div className="description">
           {"We will fix this as soon as possible. Please try again later."}
         </div>
+        <pre>{JSON.stringify(error, null, 2)}</pre>
       </Wrapper>
     </>
   );
