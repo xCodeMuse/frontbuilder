@@ -45,6 +45,6 @@ export default function Index({
   );
 }
 
-export const getServerSideProps = async ({ params }) => {
-  return await getPageData(params);
+export const getServerSideProps = async ({ query }) => {
+  return getPageData(query);
 };

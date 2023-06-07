@@ -15,7 +15,6 @@ export const readFromKV = async (key: string) => {
   }).then((response) => {
     return response.json();
   });
-  console.log({ value });
   return value;
 };
 
@@ -29,7 +28,6 @@ export const writeToKv = async (key: string, value: any) => {
     body: JSON.stringify({ value }),
   }).then((response) => response.json());
 
-  console.log({ result });
   if (success) {
     return result;
   }
