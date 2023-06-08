@@ -58,7 +58,7 @@ const getFromSupabase = async (site: string, slug: string) => {
 
   return {
     props: {
-      data: data || null,
+      data: { site, slug } || null,
       error,
     },
   };
