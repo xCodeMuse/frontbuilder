@@ -40,7 +40,7 @@ const getFromCloudFlareKV = async (site: string, slug: string) => {
 
   return {
     props: {
-      data: { data, error },
+      data: data || null,
       error,
     },
   };
