@@ -27,9 +27,11 @@ export default getPageData;
 const getFromCloudFlareKV = async (site: string, slug: string) => {
   let error: any = {};
   let data: DataType;
+  let result;
 
   try {
     data = await readFromKV(`${site}${slug}`);
+    result = await readFromKV(`${site}${slug}`);
     if (!data) {
       data = await page.getBySiteAndPage(site, slug);
       await writeToKv(`${site}${slug}`, data);
@@ -40,7 +42,7 @@ const getFromCloudFlareKV = async (site: string, slug: string) => {
 
   return {
     props: {
-      data: { site, slug } || null,
+      data: { result } || null,
       error,
     },
   };
