@@ -26,14 +26,15 @@ export default getPageData;
 
 const getFromCloudFlareKV = async (site: string, slug: string) => {
   let error: any = {};
-  let data: DataType;
+  let data: any;
 
   try {
     data = await readFromKV(`${site}${slug}`);
-    // if (!data || Object.keys(data).length === 0) {
-    //   data = await page.getBySiteAndPage(site, slug);
-    //   await writeToKv(`${site}${slug}`, data);
-    // }
+    if (!data || Object.keys(data).length === 0) {
+      data = await page.getBySiteAndPage(site, slug);
+      await writeToKv(`${site}${slug}`, data);
+      data = "I am here";
+    }
   } catch (e) {
     error = e;
   }
