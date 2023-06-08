@@ -16,7 +16,7 @@ const Page404 = ({ data }) => {
         <div className="description">
           {"Either the page was deleted or you have a typo."}
         </div>
-        <pre>{JSON.stringify(data)}</pre>
+        <pre>{`data is: ${JSON.stringify(data)}`}</pre>
       </Wrapper>
     </>
   );
