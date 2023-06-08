@@ -24,7 +24,7 @@ export default function Page({
   }
 
   if (error?.code) {
-    return <Page500 error={error} />;
+    return <Page500 error={data} />;
   }
 
   if (

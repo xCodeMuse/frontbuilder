@@ -19,7 +19,7 @@ export default function Index({
   error: ApiErrorType;
 }) {
   if (error?.code === pageIsNotFound || !data?.page) {
-    return <Page404 data={error} />;
+    return <Page404 data={data} />;
   }
 
   if (error?.code) {
