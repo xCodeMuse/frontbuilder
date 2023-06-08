@@ -3,7 +3,7 @@ import { FaRegSadCry } from "react-icons/fa";
 import CustomHead from "../src/CustomHead";
 import React from "react";
 
-const Page404 = () => {
+const Page404 = ({ data }) => {
   return (
     <>
       <CustomHead title={"Not Found"} />
@@ -16,6 +16,7 @@ const Page404 = () => {
         <div className="description">
           {"Either the page was deleted or you have a typo."}
         </div>
+        <pre>{JSON.stringify(data, null, 2)}</pre>
       </Wrapper>
     </>
   );
