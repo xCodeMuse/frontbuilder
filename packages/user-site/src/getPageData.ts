@@ -40,7 +40,7 @@ const getFromCloudFlareKV = async (site: string, slug: string) => {
 
   return {
     props: {
-      data: { site, slug } || null,
+      data: data || null,
       error,
     },
   };
@@ -58,7 +58,7 @@ const getFromSupabase = async (site: string, slug: string) => {
 
   return {
     props: {
-      data: { site, slug } || null,
+      data: data || null,
       error,
     },
   };
