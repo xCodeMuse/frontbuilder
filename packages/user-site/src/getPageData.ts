@@ -29,11 +29,11 @@ const getFromCloudFlareKV = async (site: string, slug: string) => {
   let data: any;
 
   try {
-    data = await readFromKV(`${site}${slug}`);
+    // data = await readFromKV(`${site}${slug}`);
+    data = "I am here";
     if (!data || Object.keys(data).length === 0) {
       data = await page.getBySiteAndPage(site, slug);
       await writeToKv(`${site}${slug}`, data);
-      data = "I am here";
     }
   } catch (e) {
     error = e;
