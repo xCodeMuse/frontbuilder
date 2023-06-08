@@ -20,7 +20,7 @@ export default function Page({
   error: ApiErrorType;
 }) {
   if (error?.code === pageIsNotFound || !data?.page) {
-    return <Page404 data={data} />;
+    return <Page404 data={error} />;
   }
 
   if (error?.code) {
