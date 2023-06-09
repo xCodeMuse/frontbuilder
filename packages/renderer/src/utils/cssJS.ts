@@ -68,15 +68,16 @@ const appendStyle = (element: ElementType) => {
 const toKebabCase = (str: string) =>
   str.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, "$1-$2").toLowerCase();
 
-export const formatId = (id: string | undefined) => {
+export const formatId = (id: string | undefined): any => {
   if (!id) return "";
   if (id.trim() === "0.1") return "root";
-  const newId = String(id).replace(/-./g, "");
+  let newId = String(id).replace(/-./g, "");
   // check if the first character is a number
   if (newId.match(/^\d/)) {
     // remove the first character
-    return newId.substring(1);
+    newId = newId.substring(1);
+    return formatId(newId);
+  } else {
+    return newId;
   }
-
-  return newId;
 };
