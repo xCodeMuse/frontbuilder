@@ -6,9 +6,6 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  experimental: {
-    runtime: "experimental-edge",
-  },
 };
 
 module.exports = withTM(nextConfig);

@@ -28,3 +28,7 @@ export default class MyDocument extends Document {
     }
   }
 }
+
+export const config = {
+  runtime: "experimental-edge",
+};
