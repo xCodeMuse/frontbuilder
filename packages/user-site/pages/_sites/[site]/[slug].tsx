@@ -47,6 +47,5 @@ export default function Page({
 }
 
 export const getServerSideProps = async ({ query }) => {
-  registerElements();
   return getPageData(query);
 };
