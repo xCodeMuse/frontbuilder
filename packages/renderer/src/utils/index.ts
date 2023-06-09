@@ -33,7 +33,7 @@ export function registerElement(
   icon?: any
 ) {
   elements[name] = {
-    component: wrapper?.(Component) || StyledComponent(Component),
+    component: wrapper?.(Component) || Component,
     data: elementData,
     icon,
   };

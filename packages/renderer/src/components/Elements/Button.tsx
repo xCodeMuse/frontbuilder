@@ -1,5 +1,6 @@
 import React, { FC, ReactNode } from "react";
 import { customElementProp, ElementType } from "../../types";
+import { formatId } from "../../utils/cssJS";
 
 const Button: FC<customElementProp> = ({ element, parent, className }) => {
   const { textContent } = element.props;
@@ -21,11 +22,12 @@ const Button: FC<customElementProp> = ({ element, parent, className }) => {
 
   return (
     <a
-      className={`element el-button ${className}`}
+      className={`element el-button ${""}`}
       data-testid={element["data-testid"]}
       href={href}
       rel="noreferrer"
       target={clickAction?.openInNewTab ? "_blank" : "_self"}
+      id={formatId(element.uuid)}
     >
       {(textContent as ReactNode) || ""}
     </a>

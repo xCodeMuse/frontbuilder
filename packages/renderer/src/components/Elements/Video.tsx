@@ -1,6 +1,7 @@
 import React, { FC, useEffect } from "react";
 import { customElementProp } from "../../types";
 import styled from "styled-components";
+import { formatId } from "../../utils/cssJS";
 
 const VideoContainer = styled.div<{ videoExists: boolean }>`
   width: 100%;
@@ -33,6 +34,7 @@ const Video: FC<customElementProp> = ({ element, parent, className }) => {
     <VideoContainer
       videoExists={element.props.videoSrc}
       className={`element ${className}`}
+      id={formatId(element.uuid)}
       data-testid={element["data-testid"]}
     >
       {element.props.videoSrc && (

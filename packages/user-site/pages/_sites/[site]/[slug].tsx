@@ -9,6 +9,10 @@ import Page500 from "pages/500";
 import getPageData from "src/getPageData";
 import UnPublishedPage from "../../UnPublishedPage";
 import CustomHead from "../../../src/CustomHead";
+import {
+  constructStyles,
+  getStyles,
+} from "@frontbuilder/renderer/src/utils/cssJS";
 
 registerElements();
 const pageIsNotFound = "PGRST116";
@@ -34,13 +38,14 @@ export default function Page({
     return <UnPublishedPage />;
   }
 
+  constructStyles(data?.page?.published || "");
   return (
     <>
       <CustomHead
         title={data?.page?.name}
         favicon={data?.website?.favicon || "/favicon.ico"}
+        styles={getStyles()}
       />
-      <FrontbuilderBadge />
       <Renderer element={data?.page?.published || ""} parent={null} />
     </>
   );

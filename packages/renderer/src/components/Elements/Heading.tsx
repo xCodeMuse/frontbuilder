@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { customElementProp } from "../../types";
+import { formatId } from "../../utils/cssJS";
 
 const onlyValidHeading = (headingType: string = "h1") => {
   const validHeadingTypes = ["h1", "h2", "h3", "h4", "h5", "h6"];
@@ -11,6 +12,7 @@ const Heading: FC<customElementProp> = ({ element, parent, className }) => {
     className: `element dotted-border ${className}`,
     "data-testid": element["data-testid"],
     dangerouslySetInnerHTML: { __html: textContent },
+    id: formatId(element.uuid),
   };
 
   return React.createElement(

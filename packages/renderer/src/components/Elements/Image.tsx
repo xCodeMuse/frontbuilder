@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { customElementProp } from "../../types";
 import { BsImageFill } from "react-icons/bs";
 import styled from "styled-components";
+import { formatId } from "../../utils/cssJS";
 
 const Image: FC<customElementProp> = ({ element, parent, className }) => {
   if (String(element.props.src).trim() === "") {
@@ -22,6 +23,7 @@ const Image: FC<customElementProp> = ({ element, parent, className }) => {
       data-testid={element["data-testid"]}
       src={element.props.src}
       alt=""
+      id={formatId(element.uuid)}
     />
   );
 };

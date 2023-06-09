@@ -1,15 +1,16 @@
 import React, { FC } from "react";
 import Renderer from "../Renderer";
 import { customElementProp, ElementType } from "../../types";
+import { formatId } from "../../utils/cssJS";
 
 const Box: FC<customElementProp> = ({ element, parent, className }) => {
   return (
     <div
       className={`element ${
         element.props.name !== "Root" ? "dotted-border" : ""
-      } ${className}`}
+      } ${""}`}
       data-testid={element["data-testid"]}
-      id={element.uuid}
+      id={formatId(element.uuid)}
     >
       {element.children.map((child: string | ElementType, i: number) => {
         return <Renderer key={i} element={child} parent={element} index={i} />;

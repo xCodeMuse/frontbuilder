@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { customElementProp, ElementType } from "../../types";
+import { formatId } from "../../utils/cssJS";
 
 const Paragraph: FC<customElementProp> = ({ element, parent, className }) => {
   const { textContent } = element.props;
@@ -7,6 +8,7 @@ const Paragraph: FC<customElementProp> = ({ element, parent, className }) => {
     <p
       className={`element dotted-border ${className}`}
       data-testid={element["data-testid"]}
+      id={formatId(element.uuid)}
       dangerouslySetInnerHTML={{ __html: textContent }}
     />
   );
