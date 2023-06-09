@@ -6,3 +6,7 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
+
+export const config = {
+  runtime: "experimental-edge",
+};
