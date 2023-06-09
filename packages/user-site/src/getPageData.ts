@@ -14,9 +14,6 @@ const getPageData = async ({
   switch (source) {
     case "cloudflare":
       return await getFromCloudFlareKV(site, slug);
-
-    case "json":
-      return await getFromJson(site, slug);
     default:
       return await getFromSupabase(site, slug);
   }
@@ -52,36 +49,6 @@ const getFromSupabase = async (site: string, slug: string) => {
 
   try {
     data = await page.getBySiteAndPage(site, slug);
-  } catch (e) {
-    error = e;
-  }
-
-  return {
-    props: {
-      data: data || null,
-      error,
-    },
-  };
-};
-
-import path from "path";
-import { promises as fs } from "fs";
-const getFromJson = async (site: string, slug: string) => {
-  let error: any = {};
-  let data: DataType;
-
-  try {
-    const filePath = path.join(process.cwd(), "tmp/data.json");
-    const jsonData = await fs.readFile(filePath);
-    // @ts-ignore
-    const objectData = JSON.parse(jsonData);
-    data = objectData[`${site}${slug}`];
-
-    if (!data) {
-      data = await page.getBySiteAndPage(site, slug);
-      const newObjectData = { ...objectData, ...{ [`${site}${slug}`]: data } };
-      await fs.writeFile(filePath, JSON.stringify(newObjectData));
-    }
   } catch (e) {
     error = e;
   }
