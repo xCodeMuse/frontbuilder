@@ -34,6 +34,7 @@ const appendStyle = (element: ElementType) => {
               return `${toKebabCase(key)}: ${_mdStyles[key]};`;
             })
             .join("")}
+         }
         }`;
   }
 
@@ -47,6 +48,7 @@ const appendStyle = (element: ElementType) => {
               return `${toKebabCase(key)}: ${_smStyles[key]};`;
             })
             .join("")}
+          }
         }`;
   }
 
