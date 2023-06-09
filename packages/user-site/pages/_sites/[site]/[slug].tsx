@@ -49,7 +49,3 @@ export default function Page({
 export const getServerSideProps = async ({ query }) => {
   return getPageData(query);
 };
-
-export const config = {
-  runtime: "experimental-edge",
-};

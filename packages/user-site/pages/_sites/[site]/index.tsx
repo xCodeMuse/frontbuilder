@@ -50,7 +50,3 @@ export const getServerSideProps = async ({ query }) => {
   registerElements();
   return getPageData(query);
 };
-
-export const config = {
-  runtime: "experimental-edge",
-};
