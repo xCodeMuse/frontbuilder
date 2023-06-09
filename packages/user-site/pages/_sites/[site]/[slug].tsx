@@ -10,6 +10,7 @@ import getPageData from "src/getPageData";
 import UnPublishedPage from "../../UnPublishedPage";
 import CustomHead from "../../../src/CustomHead";
 
+registerElements();
 const pageIsNotFound = "PGRST116";
 export default function Page({
   data,
