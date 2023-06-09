@@ -18,6 +18,7 @@ export default function Index({
   data: DataType;
   error: ApiErrorType;
 }) {
+  registerElements();
   if (error?.code === pageIsNotFound || !data?.page) {
     return <Page404 data={data} />;
   }
