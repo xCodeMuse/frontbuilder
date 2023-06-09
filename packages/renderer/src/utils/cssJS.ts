@@ -1,5 +1,6 @@
 import { ElementType } from "../types";
 import { removeNonCSSProps } from "./index";
+import { MEASUREMENT } from "../constants";
 
 let allStyles = "";
 export const constructStyles = (element: ElementType | string) => {
@@ -22,6 +23,32 @@ const appendStyle = (element: ElementType) => {
         .join("")}
     }
     `;
+
+  if (mdScreen) {
+    const _mdStyles = removeNonCSSProps(mdScreen);
+    allStyles += `
+      @media (max-width: ${MEASUREMENT.TABLET_SCREEN}) {
+        #${formatId(element.uuid)} {
+          ${Object.keys(_mdStyles)
+            .map((key) => {
+              return `${toKebabCase(key)}: ${_mdStyles[key]};`;
+            })
+            .join("")}
+        }`;
+  }
+
+  if (smScreen) {
+    const _smStyles = removeNonCSSProps(smScreen);
+    allStyles += `
+      @media (max-width: ${MEASUREMENT.MOBILE_SCREEN}) {
+        #${formatId(element.uuid)} {
+          ${Object.keys(_smStyles)
+            .map((key) => {
+              return `${toKebabCase(key)}: ${_smStyles[key]};`;
+            })
+            .join("")}
+        }`;
+  }
 
   if (formatId(element.uuid) === "root") {
     allStyles += `
