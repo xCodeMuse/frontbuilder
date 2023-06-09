@@ -19,7 +19,6 @@ export default function Page({
   data: DataType;
   error: ApiErrorType;
 }) {
-  registerElements();
   if (error?.code === pageIsNotFound || !data?.page) {
     return <Page404 data={data} />;
   }
@@ -48,5 +47,6 @@ export default function Page({
 }
 
 export const getServerSideProps = async ({ query }) => {
+  registerElements();
   return getPageData(query);
 };
