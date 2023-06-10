@@ -17,11 +17,26 @@ const Image: FC<customElementProp> = ({ element, parent, className = "" }) => {
       </div>
     );
   }
+  let widthAndHeight = {};
+  if (element.props.width.trim().toLowerCase() !== "auto") {
+    widthAndHeight = {
+      width: element.props.width,
+    };
+  }
+
+  if (element.props.height.trim().toLowerCase() !== "auto") {
+    widthAndHeight = {
+      ...widthAndHeight,
+      height: element.props.height,
+    };
+  }
+
   return (
     <img
       className={`element ${className}`}
       data-testid={element["data-testid"]}
       src={element.props.src}
+      {...widthAndHeight}
       alt=""
       id={formatId(element.uuid)}
     />
