@@ -18,9 +18,11 @@ const pageIsNotFound = "PGRST116";
 export default function Index({
   data,
   error,
+  styles,
 }: {
   data: DataType;
   error: ApiErrorType;
+  styles: string;
 }) {
   if (error?.code === pageIsNotFound || !data?.page) {
     return <Page404 data={data} />;
@@ -37,13 +39,12 @@ export default function Index({
     return <UnPublishedPage />;
   }
 
-  constructStyles(data?.page?.published || "");
   return (
     <>
       <CustomHead
         title={data?.page?.name}
         favicon={data?.website?.favicon || "/favicon.ico"}
-        styles={getStyles()}
+        styles={styles}
       />
       <Renderer element={data?.page?.published || ""} parent={null} />
     </>
@@ -51,5 +52,13 @@ export default function Index({
 }
 
 export const getServerSideProps = async ({ query }) => {
-  return getPageData(query);
+  const result = await getPageData(query);
+  constructStyles(result.props.data?.page?.published || "");
+  return {
+    props: {
+      data: result.props.data,
+      error: result.props.error,
+      styles: getStyles(),
+    },
+  };
 };

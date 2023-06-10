@@ -14,7 +14,9 @@ const CustomHead = ({
     <Head>
       <title>{title}</title>
       <link rel="icon" href={favicon} />
-      <style id="stitches" dangerouslySetInnerHTML={{ __html: styles }} />
+      {styles && (
+        <style id="stitches" dangerouslySetInnerHTML={{ __html: styles }} />
+      )}
     </Head>
   );
 };
