@@ -6,7 +6,11 @@ const onlyValidHeading = (headingType: string = "h1") => {
   const validHeadingTypes = ["h1", "h2", "h3", "h4", "h5", "h6"];
   return validHeadingTypes.includes(headingType) ? headingType : "h1";
 };
-const Heading: FC<customElementProp> = ({ element, parent, className }) => {
+const Heading: FC<customElementProp> = ({
+  element,
+  parent,
+  className = "",
+}) => {
   const { textContent } = element.props;
   const props = {
     className: `element dotted-border ${className}`,

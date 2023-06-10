@@ -2,7 +2,11 @@ import React, { FC } from "react";
 import { customElementProp, ElementType } from "../../types";
 import { formatId } from "../../utils/cssJS";
 
-const Paragraph: FC<customElementProp> = ({ element, parent, className }) => {
+const Paragraph: FC<customElementProp> = ({
+  element,
+  parent,
+  className = "",
+}) => {
   const { textContent } = element.props;
   return (
     <p

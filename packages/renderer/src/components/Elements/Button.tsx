@@ -2,7 +2,7 @@ import React, { FC, ReactNode } from "react";
 import { customElementProp, ElementType } from "../../types";
 import { formatId } from "../../utils/cssJS";
 
-const Button: FC<customElementProp> = ({ element, parent, className }) => {
+const Button: FC<customElementProp> = ({ element, parent, className = "" }) => {
   const { textContent } = element.props;
   const { clickAction } = element.props;
   const isGoToPage = clickAction?.type === "goToPage".toLowerCase();
@@ -22,7 +22,7 @@ const Button: FC<customElementProp> = ({ element, parent, className }) => {
 
   return (
     <a
-      className={`element el-button ${""}`}
+      className={`element el-button ${className}`}
       data-testid={element["data-testid"]}
       href={href}
       rel="noreferrer"

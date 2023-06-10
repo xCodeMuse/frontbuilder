@@ -4,7 +4,7 @@ import { BsImageFill } from "react-icons/bs";
 import styled from "styled-components";
 import { formatId } from "../../utils/cssJS";
 
-const Image: FC<customElementProp> = ({ element, parent, className }) => {
+const Image: FC<customElementProp> = ({ element, parent, className = "" }) => {
   if (String(element.props.src).trim() === "") {
     return (
       <div

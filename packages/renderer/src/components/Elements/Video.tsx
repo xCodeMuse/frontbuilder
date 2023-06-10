@@ -19,7 +19,7 @@ const VideoPlayer = styled.video`
   max-height: 100%;
 `;
 
-const Video: FC<customElementProp> = ({ element, parent, className }) => {
+const Video: FC<customElementProp> = ({ element, parent, className = "" }) => {
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
