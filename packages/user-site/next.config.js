@@ -6,7 +6,6 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  compress: true,
 };
 
 module.exports = withTM(nextConfig);
