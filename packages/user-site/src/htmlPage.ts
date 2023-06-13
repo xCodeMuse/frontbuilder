@@ -9,7 +9,6 @@ const htmlPage = (componentHtml, pageTitle) => {
           <title>${pageTitle}</title>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
-          <link rel="stylesheet" href="test-susan-site.frontbuilder.site/globalCSS">
           <style>${getGlobalStyles()}</style>
           <style>${getStyles()}</style>   
         </head>
