@@ -29,6 +29,8 @@ export default function middleware(req: NextRequest) {
     .replace("www.", "");
 
   // rewrite everything else to `/_sites/[site] dynamic route
-  url.pathname = `/_sites/${currentHost}${url.pathname}`;
+  // url.pathname = `/_sites/${currentHost}${url.pathname}`;
+  url.pathname = `/api/page`;
+
   return NextResponse.rewrite(url);
 }

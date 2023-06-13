@@ -25,11 +25,11 @@ export default function Index({
   styles: string;
 }) {
   if (error?.code === pageIsNotFound || !data?.page) {
-    return <Page404 data={data} />;
+    return <Page404 />;
   }
 
   if (error?.code) {
-    return <Page500 error={error} />;
+    return <Page500 />;
   }
 
   if (

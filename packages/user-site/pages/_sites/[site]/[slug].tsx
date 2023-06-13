@@ -26,11 +26,11 @@ export default function Page({
   styles: string;
 }) {
   if (error?.code === pageIsNotFound || !data?.page) {
-    return <Page404 data={data} />;
+    return <Page404 />;
   }
 
   if (error?.code) {
-    return <Page500 error={data} />;
+    return <Page500 />;
   }
 
   if (

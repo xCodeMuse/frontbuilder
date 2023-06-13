@@ -3,11 +3,39 @@ import { FaRegSadCry } from "react-icons/fa";
 import CustomHead from "../src/CustomHead";
 import React from "react";
 
-const Page404 = ({ data }) => {
+const Page404 = () => {
   return (
     <>
-      <CustomHead title={"Not Found"} />
-      <Wrapper>
+      <style>
+        {`.wrapper {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              height: 100vh;
+              width: 100vw;
+              gap: 10px;
+              background-color: rgb(255, 197, 20);
+              color: black;
+              text-align: center;
+            
+              .page-404-icon {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 3px;
+                font-size: 100px;
+                margin-bottom: 30px;
+                line-height: 100px;
+              }
+            
+              .description {
+                margin-top: 10px;
+              }
+            }`}
+      </style>
+      <div className="wrapper">
         <div className="page-404-icon">
           4<FaRegSadCry color={"#ea552b"} size={80} />4
         </div>
@@ -16,38 +44,9 @@ const Page404 = ({ data }) => {
         <div className="description">
           {"Either the page was deleted or you have a typo."}
         </div>
-        <pre>{`data is: ${JSON.stringify(data)}`}</pre>
-      </Wrapper>
+      </div>
     </>
   );
 };
 
 export default Page404;
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
-  gap: 10px;
-  background-color: rgb(255, 197, 20);
-  color: black;
-  text-align: center;
-
-  .page-404-icon {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    font-size: 100px;
-    margin-bottom: 30px;
-    line-height: 100px;
-  }
-
-  .description {
-    margin-top: 10px;
-  }
-`;
