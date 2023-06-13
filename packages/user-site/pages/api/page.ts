@@ -3,7 +3,7 @@ import getPageData from "../../src/getPageData";
 import Renderer, { registerElements } from "@frontbuilder/renderer";
 import { constructStyles } from "@frontbuilder/renderer/src/utils/cssJS";
 
-import htmlPage from "../htmlPage";
+import htmlPage from "../../src/htmlPage";
 import Page404 from "../404";
 import Page500 from "../500";
 import UnPublishedPage from "../UnPublishedPage";
