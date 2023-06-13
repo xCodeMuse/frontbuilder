@@ -4,7 +4,7 @@ import { getStyles } from "@frontbuilder/renderer/src/utils/cssJS";
 const htmlPage = (componentHtml, pageTitle) => {
   return `
       <!DOCTYPE html>
-      <html>
+      <html lang="en">
         <head>
           <title>${pageTitle}</title>
           <meta charset="utf-8">

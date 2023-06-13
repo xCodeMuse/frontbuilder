@@ -34,7 +34,7 @@ export default async function handler(req, res) {
     res.setHeader("Content-Type", "text/html");
 
     // Send the complete HTML document as the response
-    res.send(htmlPage(componentHtml, data?.page?.title || ""));
+    res.send(htmlPage(componentHtml, data?.page?.name || ""));
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
